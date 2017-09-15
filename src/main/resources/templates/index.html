@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+
+    <title>RCK Skopje</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"></link>
+
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet"></link>
+    <link href="/css/main.css" rel="stylesheet"></link>
+
+
+    <!-- Custom Fonts -->
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css"></link>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a th:href="@{/home}"><img style="height:40px; margin-left: 15px; margin-top: 5px;" th:src="@{/storePicture/4}"> </img> </a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-nav" style="font-size: 1em; font-weight: bold; padding-top:0.5em; ">
+            <li class="text-uppercase"><a href="#" data-toggle="modal" data-target="#aboutUsModal" style="color: #388e3c">About us &nbsp;&nbsp;&nbsp;<span>|</span></a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" style="color: #388e3c">Categories
+                    <span class="caret"> </span><span>&nbsp;&nbsp;&nbsp;|</span></a>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{/category}" style="color: #388e3c"><b>All categories</b></a></li>
+                    <li class="divider" style="color: #388e3c"></li>
+                    <li th:each="c : ${categories}">
+                    <a th:href="@{/category/{categoryId}(categoryId=${c.id})}" th:text="${c.name}" style="color: #388e3c"></a>
+                    </li>
+                </ul>
+            </li>
+            <li  class="text-uppercase"><a th:href="@{/contact}" style="color: #388e3c">Contact &nbsp;&nbsp;&nbsp;<span>|</span></a>
+            </li>
+
+            <!--Ne brisi -> SEARCH !!!!-->
+
+            <!--<li style="width:15%">-->
+                <!--<form method="get" th:action="@{/search}">-->
+                    <!--<div class="input-group custom-search-form">-->
+
+                        <!--<input type="text"-->
+                               <!--name="query"-->
+                               <!--class="form-control"-->
+                               <!--th:value="${query}"-->
+                               <!--placeholder="Search..."></input>-->
+                        <!--<span class="input-group-btn">-->
+              <!--<button class="btn btn-default" type="submit">-->
+                <!--<i class="fa fa-search"></i>-->
+              <!--</button>-->
+            <!--</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+                <!--&lt;!&ndash; /input-group &ndash;&gt;-->
+            <!--</li>-->
+        </ul>
+
+
+
+        <div th:replace="fragments/top"></div>
+        <!-- /.navbar-top-links -->
+        <!--<div th:replace="fragments/sidebar"></div>-->
+    </nav>
+
+    <!-- Modal -->
+    <div id="aboutUsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content text-justify" style="font-family: 'Open Sans', sans-serif;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color: #388e3c; font-family: 'Open Sans', sans-serif;"><b>Our Story</b></h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Since our humble beginnings, it's our products, services and prices that have kept our customers happy.
+
+                        We're the only Macedonian outdoor retailer to offer good, better and best choices from a 5000 denars helmet to a 9000 denars rope. It's what our customers expect from an Aladdin's cave of outdoor gear and it's part of what makes us special. From experienced mountaineers to dog walkers and their dogs, everybody's welcome. We care more about those people than ticking boxes and we know it's what keeps them coming back.
+                    </p>
+                    <h4 style="color: #388e3c; font-family: 'Open Sans', sans-serif;"><b>Our values</b></h4>
+                    <p>aren't just posters on the wall. We welcome everyone with open and enthusiastic arms, helping them to step into the outdoors whether it's to go walking, camping or fishing. Value matters too so we'll keep offering cracking deals and only selling customers what they need. Innovation is who we are. From unique product areas to exclusive brands, we're constantly looking for fresh ideas to keep things fun for our customers.
+                    </p>
+                    <h4 style="color: #388e3c; font-family: 'Open Sans', sans-serif;"><b>Our mission</b></h4>
+                    <p>is clear:
+
+                        inspiring everyone to get outdoors for less and love it as much as we do.
+
+                        Founded to help customers get the most out of the outdoors, it's our name and it's our nature. This hasn't changed a bit and it never will.</p>
+                </div>
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <!--</div>-->
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="page-wrapper">
+        <div th:replace="fragments/page::${pageFragment!=null? pageFragment : 'products'}"></div>
+
+        <!-- /#page-wrapper -->
+
+        <!--<div style="margin-left: 8em;">-->
+
+            <!--<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 1000px">-->
+                <!--&lt;!&ndash; Indicators &ndash;&gt;-->
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                <!--</ol>-->
+
+                <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+                <!--<div class="carousel-inner" style="height: 400px">-->
+                    <!--<div class="item active">-->
+                        <!--<img th:src="@{/storePicture/1}" style="width: 100%"/>-->
+                    <!--</div>-->
+
+                    <!--<div class="item">-->
+                        <!--<img th:src="@{/storePicture/2}" style="width: 100%"/>-->
+                    <!--</div>-->
+
+                    <!--<div class="item">-->
+                        <!--<img th:src="@{/storePicture/3}" style="width: 100%"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Left and right controls &ndash;&gt;-->
+                <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">-->
+                    <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+                    <!--<span class="sr-only">Previous</span>-->
+                <!--</a>-->
+                <!--<a class="right carousel-control" href="#myCarousel" data-slide="next">-->
+                    <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+                    <!--<span class="sr-only">Next</span>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/sb-admin-2.js"></script>
+
+<script src="/js/sockjs.js"></script>
+<script src="/js/stomp.js"></script>
+<script src="/js/chat.js"></script>
+
+</body>
+
+</html>

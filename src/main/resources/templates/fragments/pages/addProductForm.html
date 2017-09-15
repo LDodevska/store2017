@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+
+<form th:action="@{/admin/product}"
+      enctype="multipart/form-data"
+      method="POST"
+      xmlns:th="http://www.thymeleaf.org"
+class="container">
+    <h2 style="color: #388e3c; padding-left: 0;"> Create product: </h2>
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Name:
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="name"> </input> <br/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Description:
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <textarea class="form-control" rows="5" name="description" id="description"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Category:
+        </div>
+        <div class="col-md-6">
+            <select name="categoryId">
+                <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select><br/>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            ISBN:
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="isbn"> </input><br/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Price:
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="price"> </input><br/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Quantity:
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="quantity"> </input><br/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Picture:
+        </div>
+        <div class="col-md-6">
+            <input type="file" name="picture"></input><br/>
+        </div>
+    </div>
+
+
+    <input class="btn btn-success" type="submit"></input>
+</form>

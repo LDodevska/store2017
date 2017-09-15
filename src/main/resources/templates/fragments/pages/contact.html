@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<div class="row" style="margin-left: 2em">
+
+    <div class="col-md-4" style="padding-top:2em;">
+        <form th:action="@{/contact}"
+              method="POST"
+              xmlns:th="http://www.thymeleaf.org">
+            <fieldset class="form-group">
+                <label for="username">Name:</label>
+                <input type="text" class="form-control" name="name" id="username"> </input>
+            </fieldset>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" name="email" id="email"> </input>
+            </div>
+            <div class="form-group">
+                <label for="comment">Message:</label>
+                <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+            </div>
+            <button name="id" class="btn btn-success btn-lg">Send</button>
+        </form>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1">
+        <div class="row" style="padding-top:2em;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11859.932594797037!2d21.4097027!3d42.00063720000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x33d56647e5b87264!2sFaculty+of+Computer+Science+and+Engineering!5e0!3m2!1sen!2smk!4v1496944791317"
+                    width="600" height="450" frameborder="0" style="border:0"></iframe>
+        </div>
+        <div class="row" style="padding-top:2.3em;">
+            <p class="text-justify" style="font-size: 1.1em;">
+                <span class="glyphicon glyphicon-home" style="color:#CE6000; padding-bottom: 1em;"></span> &nbsp;&nbsp;&nbsp;
+                Rajko Zinzifov 40, 1000 Skopje, Macedonia<br/>
+                <span class="glyphicon glyphicon-phone" style="color:#CE6000; padding-bottom: 1em;"></span> &nbsp;&nbsp;&nbsp;
+                +389 2 3231 802,   + 389 78 333 733<br/>
+                <span class="glyphicon glyphicon-envelope" style="color:#CE6000; padding-bottom: 1em;"></span> &nbsp;&nbsp;&nbsp;
+                rckskopje@gmail.com
+            </p>
+        </div>
+
+    </div>
+</div>

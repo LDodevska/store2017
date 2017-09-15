@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<form class="container" style="width: 50%; margin-top: 5em;padding-right:11em;"
+      th:action="@{/usernameAlreadyExists}"
+      method="POST"
+      xmlns:th="http://www.thymeleaf.org">
+    <h5>
+        Sorry, that username already exists. Please choose another one.<br/><br/>
+    </h5>
+    <button name="id" class="btn btn-warning">Try again</button>
+</form>

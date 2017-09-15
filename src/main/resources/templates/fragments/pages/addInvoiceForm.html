@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<h1>Create invoice:</h1>
+
+<form th:action="@{/admin/invoice}"
+      method="POST"
+      xmlns:th="http://www.thymeleaf.org">
+    Choose checkout:
+    <select name="checkoutId" class="form-control">
+        <option th:each="c : ${checkouts}" th:value="${c.id}" th:text="'ID:' + ${c.id} + ', Contact:'+ ${c.contactInfo.firstName} + ' '+${c.contactInfo.lastName} + ', Total price:'+ ${c.cart.totalPrice}"></option>
+    </select>
+    <br/>
+    Gross price: <input class="form-control" type="text" name="grossPrice"> </input><br/>
+    Tax Amount: <input class="form-control" type="text" name="taxAmount"> </input><br/>
+    Expiry Date: <input class="form-control" type="datetime-local" name="date"> </input><br/>
+    <input type="submit" class="btn btn-primary"> </input>
+</form>
+
+<h1>Manage invoices:</h1>
+
+    <table class="table table-bordered table-striped" xmlns:th="http://www.thymeleaf.org">
+        <tr>
+            <th>Expiry Date</th>
+            <th>Status</th>
+            <th>Gross Price</th>
+            <th>Tax Amount</th>
+            <th>CheckoutID</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="i : ${invoices}">
+            <td th:text="${i.expiryDate}"></td>
+            <td th:text="${i.status}"></td>
+            <td th:text="${i.grossPrice}"></td>
+            <td th:text="${i.taxAmount}"></td>
+            <td th:text="${i.checkout.id}"></td>
+            <td>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form th:action="@{/admin/invoice/markIssued}"
+                              method="POST">
+                            <button th:value="${i.id}" name="id" class="btn btn-xs btn-default">
+                                Issued
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form th:action="@{/admin/invoice/markPayed}"
+                              method="POST">
+                            <button th:value="${i.id}" name="id" class="btn btn-xs btn-primary">
+                                Payed
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form th:action="@{/admin/invoice/markExpired}"
+                              method="POST">
+                            <button th:value="${i.id}" name="id" class="btn btn-xs btn-danger">
+                                Expired
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>

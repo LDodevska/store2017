@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<style>
+    .btn-primary{
+        margin-top: 1.5em;
+    }
+
+    .txt{
+        font-size: x-large;
+        text-align: center;
+    }
+
+</style>
+    <h1>Add new delivery info:</h1>
+    <form th:action="@{/deliveryInfo}"
+      method="POST"
+      xmlns:th="http://www.thymeleaf.org">
+    Select user:
+    <select name="userId" class="form-control">
+        <option th:each="u : ${users}" th:value="${u.id}" th:text="'ID:' + ${u.id}"></option>
+    </select>
+    <br/>
+    <input class="form-control" type="text" name="country" placeholder="Country"> </input><br/>
+    <input class="form-control" type="text" name="city" placeholder="City"> </input><br/>
+    <input class="form-control" type="text" name="postalCode" placeholder="Postal code"> </input><br/>
+    <input class="form-control" type="text" name="address" placeholder="Address"> </input><br/>
+    <input type="submit" class="btn btn-lg btn-default btn-block"> </input>
+</form>
+
+
+    <hr/>
+    <br/><h1>Update delivery info: </h1><br/>
+
+    <table class="table table-bordered table-striped" xmlns:th="http://www.thymeleaf.org">
+        <tr th:each="d : ${delivery_info}">
+
+            <td class="txt" th:text="${d.country}" style="vertical-align: middle;"></td>
+            <td class="txt" th:text="${d.city}" style="vertical-align: middle;"></td>
+            <td class="txt" th:text="${d.postalCode}" style="vertical-align: middle;"></td>
+            <td class="txt" th:text="${d.address}" style="vertical-align: middle;"></td>
+            <td class="txt" style="vertical-align: middle;">
+            <!--    <table class="table">
+                    <tr th:text="${d.customer.id}"></tr><br/>
+                    <tr th:text="${d.customer.contactInfo.firstName}"></tr><br/>
+                    <tr th:text="${d.customer.contactInfo.lastName}"></tr>
+                </table>-->
+            </td>
+
+
+            <td class="text-center" style="width:10cm; padding-left: 1cm">
+                <form th:action="@{/deliveryInfo/updateCountry}"
+                      method="POST">
+                    <div class="row">
+                        <div class="col-lg-5"><input class="form-control" type="text" name="newCountry" placeholder="Country"> </input></div>
+                        <div class="col-lg-2">
+                            <button th:value="${d.id}" name="id" class="btn btn-warning">
+                                    Update country
+                                    </button>
+                            </div>
+                    </div>
+                </form>
+                <form th:action="@{/deliveryInfo/updateCity}"
+                      method="POST">
+                    <div class="row">
+                        <div class="col-lg-5"><input class="form-control" type="text" name="newCity" placeholder="City"> </input></div>
+                        <div class="col-lg-2">
+                            <button th:value="${d.id}" name="id" class="btn btn-warning">
+                        Update City
+                    </button>
+                        </div>
+                    </div>
+                </form>
+                <form th:action="@{/deliveryInfo/updatePostalCode}"
+                      method="POST">
+                    <div class="row">
+                        <div class="col-lg-5"><input placeholder="Postal code" class="form-control" type="text" name="newPostalCode"> </input></div>
+                        <div class="col-lg-2">
+                        <button th:value="${d.id}" name="id" class="btn btn-warning">
+                        Update Postal Code
+                    </button>
+                        </div>
+                    </div>
+                </form>
+                <form th:action="@{/deliveryInfo/updateAddress}"
+                      method="POST">
+                    <div class="row">
+                        <div class="col-lg-5"><input placeholder="Address" class="form-control" type="text" name="newAddress"> </input></div>
+                        <div class="col-lg-2">
+                        <button th:value="${d.id}" name="id" class="btn btn-warning">
+                        Update address
+                    </button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        </table>

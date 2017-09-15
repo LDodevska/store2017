@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<form th:action="@{/admin/addStorePicture}"
+      enctype="multipart/form-data"
+      method="POST"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <h2 style="color: #388e3c; padding-left: 0;"> Add store picture: </h2>
+
+    <div class="row">
+        <div class="col-md-1 " style="color:#CE6000; font-size: 15px; padding-bottom: 10px">
+            Picture:
+        </div>
+        <div class="col-md-6">
+            <input type="file" name="picture"></input><br/>
+        </div>
+    </div>
+
+    <input class="btn btn-success" type="submit"> </input>
+
+</form>

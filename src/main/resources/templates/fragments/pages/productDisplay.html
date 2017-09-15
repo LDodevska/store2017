@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+
+    <table class="mainContent" cellpadding="0" cellspacing="0" width="100%" border="0"
+           style=" border-style: none; width: 100%; border-collapse: collapse;">
+        <tr>
+            <td class="leftModule" align="left" valign="top">
+                <div>
+                    <div id="primary-nav" class="left sidebar">
+                        <div class='primary-nav-title'>
+                            <h2 style="padding-left: .5em" th:text="${categoryName}"></h2>
+                        </div>
+                        <ul>
+                            <li th:each="p : ${products}">
+                                <span th:if="${p.id == prod.id}"><a th:href="@{/product/{productId}(productId=${p.id})}" th:text="${p.name}" class="active"></a></span>
+                                <span th:if="${p.id != prod.id}"><a th:href="@{/product/{productId}(productId=${p.id})}" th:text="${p.name}"></a></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </td> <!-- END PRIMARYNAV -->
+
+            <td class="mainContent" align="left" valign="top">
+                <!--<div>
+                    <h4 style=" font-weight:bold;  font-size:13pt;" th:text="${prod.name}"></h4>
+                </div>-->
+                <div class='primary-nav-title'>
+                    <h2 style="color:#CE6000; padding-left: .5em" th:text="${prod.name}"></h2>
+                </div>
+                <div class="Content-Image">
+                    <img th:src="@{/product/{id}/picture(id=${prod.id})}"
+                         style="max-width: 180px; max-height: 280px"/>
+                </div>
+                <div id="HtmlModule">
+                </div>
+
+                <div id="BodyContent" class="BodyContent text-justify">
+                    <h5 class="Cat-Desc" th:text="${prodDesc.description}" style="margin: 4em 0 1em 8em"></h5>
+                    <h5 style="display: inline"><b>Price:</b> </h5>
+                    <h5 th:text="${prod.price}" style="display: inline; font-weight: bold"></h5>
+                    <h5 style="display: inline"><b> MKD</b></h5>
+                </div>
+            </td>
+            <!-- END CONTENT -->
+
+        </tr>
+    </table>
+
+    <!--<div class="panel-group" style="width: 50em; margin-left: 15em">-->
+        <!--<div class="panel panel-default">-->
+            <!--<div class="panel-heading">-->
+                <!--<h4 style=" font-weight:bold;  color:#CE6000; font-size:13pt;" th:text="${prod.name}"></h4>-->
+            <!--</div>-->
+            <!--<div class="panel-body">-->
+                <!--<div>-->
+                    <!--<div class="row" style="margin-top:3em; margin-right: -8em">-->
+                        <!--<div class="col-md-2">-->
+                            <!--<img th:src="@{/product/{id}/picture(id=${prod.id})}"-->
+                                 <!--style="width: 180px; height: 180px"/>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-8 text-justify" style="margin-right: 3em;">-->
+                            <!--<div class="Cat-Desc" th:text="${prodDesc.description}" style="margin-left: 8em;"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-offset-4 col-md-4">-->
+                        <!--<button type="button" class="btn btn-success btn-block" style="margin-top: 1em;">Add to cart-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+<!--<div>-->
+<!--<h4 class='Content-Title' th:text="${prod.name}">Categories</h4>-->
+<!--</div>-->
+<!--<div>-->
+<!--<div class="row" style="margin-top:3em">-->
+<!--<div class="col-md-2">-->
+<!--<img th:src="@{/product/{id}/picture(id=${prod.id})}"-->
+<!--style="width: 180px; height: 180px"/>-->
+<!--</div>-->
+<!--<div class="col-md-7">-->
+<!--<h5 th:text="${prodDesc.description}"></h5>-->
+<!--</div>-->
+<!--<div class="col-lg-offset-3">-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div >-->
+<!--<button type="button" class="btn btn-success" style="margin-top: 35px; margin-left: 35px;">Add to cart</button>-->
+<!--</div>-->
+<!--</div>-->
